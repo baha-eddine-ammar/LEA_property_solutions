@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, this page will try to set a sensible base href automatically so the built JS and assets load correctly.
+  -->
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="lea">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>lea</title>
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Dynamic base href: if the placeholder was not replaced by flutter build, compute a base href so resources load correctly when hosting the built files. -->
+  <script>
+    (function() {
+      try {
+        var placeholder = '$FLUTTER_BASE_HREF';
+        // If the placeholder is still present, compute a base href dynamically.
+        if (placeholder === '$FLUTTER_BASE_HREF') {
+          var path = location.pathname;
+          var repoName = '/LEA_property_solutions/';
+          var baseHref = '/';
+
+          // If hosted as a GitHub project page (username.github.io/REPO/...), prefer the repo subpath if present in the URL.
+          if (path.indexOf(repoName) !== -1) {
+            baseHref = path.substring(0, path.indexOf(repoName) + repoName.length);
+          } else {
+            // Otherwise use the origin + the directory portion of the path (so assets load relatively).
+            baseHref = path.substring(0, path.lastIndexOf('/') + 1) || '/';
+          }
+
+          // Ensure it starts and ends with a slash
+          if (!baseHref.startsWith('/')) baseHref = '/' + baseHref;
+          if (!baseHref.endsWith('/')) baseHref = baseHref + '/';
+
+          var baseEl = document.createElement('base');
+          baseEl.setAttribute('href', baseHref);
+          document.head.appendChild(baseEl);
+        } else {
+          // If already replaced by flutter build, create the base element from the replaced value.
+          var b = document.createElement('base');
+          b.setAttribute('href', placeholder);
+          document.head.appendChild(b);
+        }
+      } catch (e) {
+        // If anything goes wrong, fall back to root
+        var b = document.createElement('base');
+        b.setAttribute('href', '/');
+        document.head.appendChild(b);
+        console.warn('Failed to compute base href, falling back to "/"', e);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
